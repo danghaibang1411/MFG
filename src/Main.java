@@ -1,3 +1,4 @@
+import Algorithms.Dinics;
 import Algorithms.EdmondsKarp;
 import Algorithms.FordFulkerson;
 
@@ -67,6 +68,8 @@ public class Main extends JFrame {
                     ActionRunFordFulkersonAlgorithm();
                 } else if (selectAlgorithms == 2) {
                     ActionEdmondsKarpAlgorithm();
+                } else if (selectAlgorithms == 3) {
+                    ActionDinicsAlgorithm();
                 } else {
                     JOptionPane.showMessageDialog(null, "Please select the algorithm before select running option!",
                             "Error", JOptionPane.ERROR_MESSAGE);
@@ -117,11 +120,10 @@ public class Main extends JFrame {
 
     private void ActionRunFordFulkersonAlgorithm() {
         int[][] graph;
-        int numberOfNodes;
-        int source;
-        int sink;
+        int numberOfNodes = 100;
+        int source = 1;
+        int sink = 100;
         int maxFlow;
-        numberOfNodes = 100;
 
         graph = new int[numberOfNodes + 1][numberOfNodes + 1];
         for (Map.Entry<Integer, List<Integer>> sourceItem : sourceData.entrySet()) {
@@ -130,8 +132,6 @@ public class Main extends JFrame {
                 graph[keySetData][destinationVertex] = sourceData.get(keySetData).get(destinationVertex - 1);
             }
         }
-        source = 1;
-        sink = 100;
 
         FordFulkerson fordFulkerson = new FordFulkerson(numberOfNodes);
         long startTime = System.nanoTime();
@@ -148,8 +148,8 @@ public class Main extends JFrame {
 
     private void ActionEdmondsKarpAlgorithm() {
         int maxFlow;
-        int numberOfNodes;
-        numberOfNodes = 100;
+        int numberOfNodes = 100;
+
         EdmondsKarp ek = new EdmondsKarp(100, 100);
         for (Map.Entry<Integer, List<Integer>> sourceItem : sourceData.entrySet()) {
             int keySetData = sourceItem.getKey();
@@ -168,6 +168,35 @@ public class Main extends JFrame {
         message.append("[").append(formatter.get().format(new Date())).append("] ");
         textOutputConsole.append("\n" + message);
         textOutputConsole.append("\nRunning Edmonds-Karp Algorithm......");
+        textOutputConsole.append("\nMaximum flow is: " + maxFlow);
+        textOutputConsole.append("\nRunning time: " + (float)(totalTime/(float)1000000) + " milliseconds");
+    }
+
+    private void ActionDinicsAlgorithm() {
+        int numberOfNodes = 100;
+        int source = 0;
+        int sink = 99;
+        long maxFlow;
+
+        Dinics dnc = new Dinics(numberOfNodes, source, sink);
+
+        for (Map.Entry<Integer, List<Integer>> sourceItem : sourceData.entrySet()) {
+            int keySetData = sourceItem.getKey();
+            for (int destinationVertex = 0; destinationVertex < numberOfNodes; destinationVertex++) {
+                if (sourceData.get(keySetData).get(destinationVertex) != 0) {
+                    dnc.addEdge(keySetData - 1, destinationVertex, sourceData.get(keySetData).get(destinationVertex));
+                }
+            }
+        }
+
+        long startTime = System.nanoTime();
+        maxFlow = dnc.getMaxFlow();
+        long endTime = System.nanoTime();
+        long totalTime = endTime - startTime;
+        StringBuilder message = new StringBuilder();
+        message.append("[").append(formatter.get().format(new Date())).append("] ");
+        textOutputConsole.append("\n" + message);
+        textOutputConsole.append("\nRunning Dinic's Algorithm......");
         textOutputConsole.append("\nMaximum flow is: " + maxFlow);
         textOutputConsole.append("\nRunning time: " + (float)(totalTime/(float)1000000) + " milliseconds");
     }
