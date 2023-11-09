@@ -3,6 +3,7 @@ package Algorithms;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
+
 public class EdmondsKarp {
 
     private long[][] flow; //max flow beetween i and j verticles

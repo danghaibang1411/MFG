@@ -1,4 +1,5 @@
 package Algorithms;
+
 public class Edge {
     public int from, to;
     public Edge residual;

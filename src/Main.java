@@ -144,7 +144,7 @@ public class Main extends JFrame {
         textOutputConsole.append("\n" + message);
         textOutputConsole.append("\nRunning Ford-Fulkerson Algorithm......");
         textOutputConsole.append("\nMaximum flow is: " + maxFlow);
-        textOutputConsole.append("\nRunning time: " + (float)(totalTime/(float)1000000) + " milliseconds");
+        textOutputConsole.append("\nRunning time: " + (float) (totalTime / (float) 1000000) + " milliseconds");
     }
 
     private void ActionEdmondsKarpAlgorithm() {
@@ -170,7 +170,7 @@ public class Main extends JFrame {
         textOutputConsole.append("\n" + message);
         textOutputConsole.append("\nRunning Edmonds-Karp Algorithm......");
         textOutputConsole.append("\nMaximum flow is: " + maxFlow);
-        textOutputConsole.append("\nRunning time: " + (float)(totalTime/(float)1000000) + " milliseconds");
+        textOutputConsole.append("\nRunning time: " + (float) (totalTime / (float) 1000000) + " milliseconds");
     }
 
     private void ActionDinicsAlgorithm() {
@@ -199,7 +199,7 @@ public class Main extends JFrame {
         textOutputConsole.append("\n" + message);
         textOutputConsole.append("\nRunning Dinic's Algorithm......");
         textOutputConsole.append("\nMaximum flow is: " + maxFlow);
-        textOutputConsole.append("\nRunning time: " + (float)(totalTime/(float)1000000) + " milliseconds");
+        textOutputConsole.append("\nRunning time: " + (float) (totalTime / (float) 1000000) + " milliseconds");
     }
 
     public static void main(String[] args) {
