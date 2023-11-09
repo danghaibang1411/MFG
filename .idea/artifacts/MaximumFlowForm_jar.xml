@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MaximumFlowForm:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MaximumFlowForm_jar</output-path>
+    <root id="archive" name="MaximumFlowForm.jar">
+      <element id="module-output" name="MaximumFlowForm" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/Compressed/swing-layout-1.0.4.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
