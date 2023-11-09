@@ -27,7 +27,8 @@ public class Main extends JFrame {
         setContentPane(panelMain);
         setTitle("Maximum Flow Graph (MFG)");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(900, 600);
+        setExtendedState(MAXIMIZED_BOTH);
+        setResizable(false);
         setLocationRelativeTo(null);
         setVisible(true);
         buttonFordF.addActionListener(new ActionListener() {
